@@ -6,6 +6,8 @@
 
 Jira import file: [jira-import.csv](jira-import.csv)
 
+![Jira backlog with two sprints](jira-backlog.png)
+
 ## Backlog overview
 
 | Sprint | Goal | Stories | Points |
