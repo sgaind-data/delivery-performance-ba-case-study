@@ -17,9 +17,9 @@ All findings are associations, not proven causes.
 |---|---|---|
 | — | [Case study](case-study.md) | Done |
 | 1 | [Problem statement & stakeholder map](01-problem-statement-stakeholders/problem-statement-stakeholders.md) | Done |
-| 2 | Business Requirements Document (BRD) | In progress |
-| 3 | User stories & sprint backlog | Planned |
-| 4 | As-is / to-be process maps | Planned |
+| 2 | [Business Requirements Document (BRD)](02-brd/brd.md) | Done |
+| 3 | [User stories & sprint backlog](03-user-stories/user-stories.md) | Done |
+| 4 | As-is / to-be process maps | In progress |
 | 5 | Excel analysis & what-if scenario | Planned |
 | 6 | UAT test plan | Planned |
 | 7 | Recommendation memo & stakeholder deck | Planned |
