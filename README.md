@@ -21,8 +21,8 @@ All findings are associations, not proven causes.
 | 3 | [User stories & sprint backlog](03-user-stories/user-stories.md) | Done |
 | 4 | [As-is / to-be process maps](04-process-maps/process-maps.md) | Done |
 | 5 | [Excel analysis & what-if scenario](05-excel-analysis/excel-analysis.md) | Done |
-| 6 | UAT test plan | In progress |
-| 7 | Recommendation memo & stakeholder deck | Planned |
+| 6 | [UAT test plan](06-uat-test-plan/uat-test-plan.md) | Done |
+| 7 | Recommendation memo & stakeholder deck | In progress |
 
 ![Stakeholder map](01-problem-statement-stakeholders/stakeholder-map.png)
 

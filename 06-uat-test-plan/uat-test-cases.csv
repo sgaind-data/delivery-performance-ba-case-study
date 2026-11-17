@@ -1,0 +1,28 @@
+test_id,type,user_story,requirement,title,steps,expected_result,actual_result,status,defect,executed_on,evidence
+DT-01,Data,US-01,BR-05,Scope count,Count delivered orders with a delivery date in the extract,"96,470 orders","96,470",Pass,,2026-11-17,Scripted check against tableau_orders.csv (dashboard extract)
+DT-02,Data,US-01,BR-05,Late orders,Count orders where delivered date > promised date,"6,534 late","6,534",Pass,,2026-11-17,Scripted check against tableau_orders.csv (dashboard extract)
+DT-03,Data,US-01,BR-05,"On-time rate (dates, not timestamps)",On-time orders / delivered orders,93.23%,93.23%,Pass,,2026-11-17,Scripted check against tableau_orders.csv (dashboard extract)
+DT-04,Data,US-02,BR-01,Delay of late orders,"Average and median of delivered date - promised date, late orders only","10.62 days avg, 7 median","10.62 avg, 7 median",Pass,,2026-11-17,Scripted check against tableau_orders.csv (dashboard extract)
+DT-05,Data,US-08,BR-08,Freight,Average freight per order; SUM(freight)/SUM(price),R$ 22.79; 16.63%,R$ 22.79; 16.63%,Pass,,2026-11-17,Scripted check against tableau_orders.csv (dashboard extract)
+DT-06,Data,US-06,BR-07,Review scores by status,"Average review score, late vs on-time, reviewed orders only","2.27 (6,381) vs 4.29 (89,443)","2.27 (6,381) vs 4.29 (89,443)",Pass,,2026-11-17,Scripted check against tableau_orders.csv (dashboard extract)
+DT-07,Data,US-04,BR-02,Dispatch band late rates,"Late rate per dispatch band (0-1, 1-3, 3-7, 7+ days)","3.81%, 5.74%, 8.10%, 21.39%","3.81%, 5.74%, 8.10%, 21.39%",Pass,,2026-11-17,Scripted check against tableau_orders.csv (dashboard extract)
+DT-08,Data,US-05,BR-03,Route late rates,"Late rate, cross-state vs same-state",8.03% vs 4.52%; cross-state = 76.1% of late,8.03% vs 4.52%; 76.1%,Pass,,2026-11-17,Scripted check against tableau_orders.csv (dashboard extract)
+DT-09,Data,US-04,BR-02,Seller scorecard population,Count sellers with 20+ delivered orders,804 sellers,804,Pass,,2026-11-17,Scripted check against tableau_orders.csv (dashboard extract)
+DT-10,Data,US-01,BR-05,Workbook reconciliation,Checks sheet in delivery-performance-analysis.xlsx,18 of 18 checks match,18 of 18,Pass,,2026-11-17,"05-excel-analysis workbook, Checks sheet"
+DV-01,Display,US-01,BR-01,On-time KPI tile,"Open dashboard, read On-Time Delivery Rate tile",93.23%,93.23%,Pass,,2026-11-17,"Dashboard screenshot, 2026-11-17"
+DV-02,Display,US-01,BR-01,Delivered orders KPI tile,Read Delivered Orders tile,"96,470","96,470",Pass,,2026-11-17,"Dashboard screenshot, 2026-11-17"
+DV-03,Display,US-02,BR-01,Average delay KPI tile,Read Avg Delay (Late Orders) tile,10.62 days,10.62 days,Pass,,2026-11-17,"Dashboard screenshot, 2026-11-17"
+DV-04,Display,US-08,BR-08,Freight KPI tile,Read Freight Cost per Order tile,R$22.79,R$22.79,Pass,,2026-11-17,"Dashboard screenshot, 2026-11-17"
+DV-05,Display,US-02,BR-01,State map color range,Read Late Rate legend on the state map,2.76% (AM) to 21.41% (AL),2.76% to 21.41%,Pass,,2026-11-17,"Dashboard screenshot, 2026-11-17"
+DV-06,Display,US-06,BR-07,Reviews by status chart,Read bar labels and chart title,2.27 late vs 4.29 on time; title states an association,2.27 vs 4.29; title says lateness 'cuts' scores (causal wording),Pass with defect,DEF-01,2026-11-17,"Dashboard screenshot, 2026-11-17"
+DV-07,Display,US-04,BR-02,10 worst sellers (20+ orders),"Read seller bars, states and late rates",Top seller 821fb029 (SP) 33.3%; 7 of 10 in SP; rates match seller table,Top 9 visible match exactly; 10th row cut off in screenshot,Pass,,2026-11-17,"Dashboard screenshot, 2026-11-17 + b5_seller_performance.csv"
+DV-08,Display,US-03,BR-04,Low-volume flag on map,"Look for a marker or note on RR (41), AP (67), AC (80)",Low-volume states visibly flagged,No flag or note on the map,Fail,DEF-02,2026-11-17,"Dashboard screenshot, 2026-11-17"
+DV-09,Display,US-08,BR-08,Freight % of item value,Look for freight as % of item value,16.63% shown,Not shown (only R$ per order),Fail,DEF-03,2026-11-17,"Dashboard screenshot, 2026-11-17"
+UI-01,Interactive,US-02,BR-01,Filter by clicking a state,Click AL on the map,"Tiles update: 78.59% on time, 397 orders, 9.54 days avg delay, R$38.58 freight; reviews 2.13 late vs 4.30 on time",,To run,,,
+UI-02,Interactive,US-02,BR-01,Clear the state filter,Click AL again (or empty map area),"Tiles return to 93.23%, 96,470, 10.62 days, R$22.79",,To run,,,
+UI-03,Interactive,US-02,BR-01,Map tooltip,Hover over SP,"Late rate 4.49% (40,494 orders if count is shown)",,To run,,,
+UI-04,Interactive,US-03,BR-04,Low-volume state filter,Click RR on the map,"41 orders; 36.40 days avg delay from only 5 late orders, with a low-volume warning",,To run (expected Fail),DEF-02,,
+UI-05,Interactive,US-01,NFR-03,Public access,"Open the Tableau Public link in a private window, signed out",Dashboard loads with no sign-in,,To run,,,
+UI-06,Interactive,US-01,BR-01,Phone layout,Open the link on a phone,"KPI tiles and charts readable, no overlap",,To run,,,
+NF-01,Non-functional,US-01,NFR-01,Daily refresh,Check Airflow DAG run history,Daily DAG run succeeds,Not re-testable: AWS resources deleted 2026-11-17; evidence = airflow_dag_success.png,Blocked,,2026-11-17,AWS repo results/airflow_dag_success.png
+NF-02,Non-functional,US-01,NFR-04,No customer-identifying data,Inspect all dashboard views,No customer IDs or names; seller IDs shortened,No customer data; seller IDs truncated (e.g. 821fb029...),Pass,,2026-11-17,"Dashboard screenshot, 2026-11-17"
