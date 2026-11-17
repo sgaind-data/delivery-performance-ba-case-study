@@ -22,7 +22,7 @@ All findings are associations, not proven causes.
 | 4 | [As-is / to-be process maps](04-process-maps/process-maps.md) | Done |
 | 5 | [Excel analysis & what-if scenario](05-excel-analysis/excel-analysis.md) | Done |
 | 6 | [UAT test plan](06-uat-test-plan/uat-test-plan.md) | Done |
-| 7 | Recommendation memo & stakeholder deck | In progress |
+| 7 | [Recommendation memo](07-recommendations/recommendation-memo.md) & [stakeholder deck (PDF)](07-recommendations/stakeholder-deck.pdf) | Done |
 
 ![Stakeholder map](01-problem-statement-stakeholders/stakeholder-map.png)
 
