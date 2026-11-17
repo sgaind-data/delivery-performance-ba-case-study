@@ -20,8 +20,8 @@ All findings are associations, not proven causes.
 | 2 | [Business Requirements Document (BRD)](02-brd/brd.md) | Done |
 | 3 | [User stories & sprint backlog](03-user-stories/user-stories.md) | Done |
 | 4 | [As-is / to-be process maps](04-process-maps/process-maps.md) | Done |
-| 5 | Excel analysis & what-if scenario | In progress |
-| 6 | UAT test plan | Planned |
+| 5 | [Excel analysis & what-if scenario](05-excel-analysis/excel-analysis.md) | Done |
+| 6 | UAT test plan | In progress |
 | 7 | Recommendation memo & stakeholder deck | Planned |
 
 ![Stakeholder map](01-problem-statement-stakeholders/stakeholder-map.png)
